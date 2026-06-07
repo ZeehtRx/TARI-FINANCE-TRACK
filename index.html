@@ -892,6 +892,17 @@ body{font-family:'Cabinet Grotesk',sans-serif;background:var(--surf);color:var(-
   .land-body{padding:1.5rem 1rem 2rem}
   .mascot-frame{width:clamp(130px,40vw,175px)}
 }
+
+/* ── API KEY SETTINGS ── */
+.api-bar{display:flex;align-items:center;gap:.55rem;padding:.75rem .95rem;background:var(--surf2);border:1.5px solid var(--surf3);border-radius:var(--r-md);margin-bottom:1rem}
+.api-bar-ico{font-size:1rem;flex-shrink:0}
+.api-inp{flex:1;padding:.5rem .75rem;background:var(--white);border:1.5px solid var(--surf3);border-radius:var(--r-sm);font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--ink);outline:none;transition:border-color .16s;min-width:0}
+.api-inp:focus{border-color:var(--primary)}
+.btn-api-save{padding:.5rem .95rem;background:var(--primary);color:#fff;border:none;border-radius:var(--r-sm);font-family:'Cabinet Grotesk',sans-serif;font-size:.78rem;font-weight:800;cursor:pointer;white-space:nowrap;transition:background .16s;flex-shrink:0}
+.btn-api-save:hover{background:var(--primary2)}
+.api-status{font-size:.7rem;font-weight:700;padding:.28rem .65rem;border-radius:var(--r-full);white-space:nowrap;flex-shrink:0}
+.api-status.ok{background:var(--primary-pale);color:var(--primary)}
+.api-status.missing{background:var(--red-pale);color:var(--red)}
 </style>
 </head>
 <body>
@@ -906,7 +917,7 @@ body{font-family:'Cabinet Grotesk',sans-serif;background:var(--surf);color:var(-
       <div class="land-eyebrow"><span class="land-eyebrow-dot"></span>AI Finance Assistant</div>
       <div class="land-logo">Bu<em>Tari</em></div>
       <div class="land-tagline">Cuan · Hemat · Gas Terus 💸</div>
-      <p class="land-desc">Perkenalkan <strong>Bu Tari</strong> — asisten keuangan AI yang jago ngitung, cerewet soal duit, tapi tetep sayang sama kamu! Boros dikit aja? <strong>Siap-siap kena Pukulan-nya! 🏏</strong></p>
+      <p class="land-desc">Perkenalkan <strong>Bu Tari</strong> — asisten keuangan AI yang jago ngitung, cerewet soal duit, tapi tetep sayang sama kamu! Boros dikit aja? <strong>Siap-siap kena baseball-nya! 🏏</strong></p>
       <div class="land-actions">
         <button class="btn-hero" onclick="goTo('s-register')">Yuk Mulai Gratis →</button>
         <button class="btn-ghost" onclick="goTo('s-login')">Udah Punya Akun</button>
@@ -1070,8 +1081,8 @@ body{font-family:'Cabinet Grotesk',sans-serif;background:var(--surf);color:var(-
     </div>
     <div id="ob3" class="ob-card" style="display:none">
       <div class="ob-prog"><div class="ob-prog-bar fill"></div><div class="ob-prog-bar fill"></div><div class="ob-prog-bar fill"></div><div class="ob-prog-bar"></div></div>
-      <div class="ob-q">Berapa Budget Pengeluaran kamu per bulan? 📊</div>
-      <div class="fld"><label class="flbl">Total Budget / Bulan (Rp)</label><input class="finp" type="text" inputmode="numeric" autocomplete="off" id="ob-budget" placeholder="Contoh: 3.000.000" oninput="onNumInput(this);prevRec()"/></div>
+      <div class="ob-q">Berapa duit kamu per bulan? 📊</div>
+      <div class="fld"><label class="flbl">Total Dana / Bulan (Rp)</label><input class="finp" type="text" inputmode="numeric" autocomplete="off" id="ob-budget" placeholder="Contoh: 3.000.000" oninput="onNumInput(this);prevRec()"/></div>
       <div id="rec-prev" style="display:none"><div class="rec-ttl" style="margin-bottom:.4rem">💡 Preview Alokasi Bu Tari</div><div id="rec-prev-items"></div></div>
       <button class="btn-next" onclick="nob(3)">Lanjut Gas →</button>
     </div>
@@ -1198,7 +1209,7 @@ body{font-family:'Cabinet Grotesk',sans-serif;background:var(--surf);color:var(-
           </div>
           <!-- Tari card -->
           <div class="tari-card safe" id="tari-card">
-            <div class="tari-fig"><svg id="tari-svg" viewBox="0 0 110 138" fill="none" width="100%" height="auto"></svg></div>
+            <div class="tari-fig"><svg id="tari-svg" viewBox="0 0 110 138" fill="none" width="100%"></svg></div>
             <div class="tari-info">
               <div class="mood-badge mb-safe" id="mood-tag">😊 Bu Tari Happy!</div>
               <div class="tari-msg" id="tari-msg">Keuangan kamu lagi oke banget nih! Keep it up ya~ 💪</div>
@@ -1303,7 +1314,28 @@ body{font-family:'Cabinet Grotesk',sans-serif;background:var(--surf);color:var(-
 
         <!-- CHAT -->
         <div class="pg" id="pg-chat">
-          <div class="pg-hd"><div class="pg-title">💬 Ngobrol sama Bu Tari</div><div class="pg-sub">Curhat soal duit? Bu Tari siap dengerin!</div></div>
+          <div class="pg-hd">
+            <div class="pg-title">💬 Ngobrol sama Bu Tari</div>
+            <div class="pg-sub">Curhat soal duit? Bu Tari siap dengerin!</div>
+          </div>
+
+          <!-- API KEY INPUT BAR -->
+          <div class="sec-card" style="margin-bottom:1rem">
+            <div class="sec-hd" style="margin-bottom:.6rem">
+              <div class="sec-title">🔑 Gemini API Key</div>
+              <a href="https://aistudio.google.com" target="_blank" style="font-size:.72rem;color:var(--primary);font-weight:700;text-decoration:none">Dapatkan gratis →</a>
+            </div>
+            <div class="api-bar">
+              <span class="api-bar-ico">🔐</span>
+              <input class="api-inp" type="password" id="api-key-inp" placeholder="Paste Gemini API Key kamu di sini..."/>
+              <span class="api-status missing" id="api-status">Belum ada</span>
+              <button class="btn-api-save" onclick="saveApiKey()">Simpan</button>
+            </div>
+            <div style="font-size:.7rem;color:var(--ink3);margin-top:.3rem;line-height:1.5">
+              🔒 Key disimpan di browser kamu saja, tidak dikirim ke server manapun selain Gemini.
+            </div>
+          </div>
+
           <div class="sec-card">
             <div class="chat-win" id="chat-win">
               <div class="cmsg bot">
@@ -1557,7 +1589,7 @@ function doReg(){
   const email=document.getElementById('rg-email').value.trim();
   const pass=document.getElementById('rg-pass').value;
   if(!name||!email||!pass){alert('Eh, isi semua dulu dong!');return}
-  if(pass.length<6){alert('Password minimal 6 karakter ya bro!');return}
+  if(pass.length<6){alert('Password minimal 6 karakter ya!');return}
   const us=JSON.parse(localStorage.getItem('bt_u')||'{}');
   if(us[email]){alert('Email ini udah kepake! Coba login aja~');return}
   us[email]={name,email,pass,onboarded:false};
@@ -1690,8 +1722,8 @@ function renderDash(){
   const msg=document.getElementById('tari-msg');
   const strip=document.getElementById('alert-strip');
   const svg=document.getElementById('tari-svg');
-  if(pct>=100){card.className='tari-card bad';tag.className='mood-badge mb-bad';tag.textContent='😤 Bu Tari Ngamuk!';msg.innerHTML='<strong>Woiii!</strong> Dompet udah KO! Budget abis! Pukulan Bu Tari siap melayang! 🏏';strip.classList.add('on');svg.innerHTML=SVG_B}
-  else if(pct>=80){card.className='tari-card warn';tag.className='mood-badge mb-warn';tag.textContent='😬 Bu Tari Khawatir!';msg.innerHTML=`Hampir boncos nih bro! Udah <strong>${Math.round(pct)}%</strong> abis. Rem dikit ya~ jangan gas terus!`;strip.classList.remove('on');svg.innerHTML=SVG_W}
+  if(pct>=100){card.className='tari-card bad';tag.className='mood-badge mb-bad';tag.textContent='😤 Bu Tari Ngamuk!';msg.innerHTML='<strong>Woii!</strong> Dompet udah KO! Budget abis! Pukulan Bu Tari siap melayang! 🏏';strip.classList.add('on');svg.innerHTML=SVG_B}
+  else if(pct>=80){card.className='tari-card warn';tag.className='mood-badge mb-warn';tag.textContent='😬 Bu Tari Khawatir!';msg.innerHTML=`Kamu Hampir boncos nih! Udah <strong>${Math.round(pct)}%</strong> abis. Rem dikit ya~ jangan gas terus!`;strip.classList.remove('on');svg.innerHTML=SVG_W}
   else{card.className='tari-card safe';tag.className='mood-badge mb-safe';tag.textContent='😊 Bu Tari Happy!';msg.innerHTML=`Cakep! Baru <strong>${Math.round(pct)}%</strong> yang keluar. Finansialmu lagi sehat banget, pertahanin! 💪`;strip.classList.remove('on');svg.innerHTML=SVG_H}
 
   renderProg();
@@ -1754,6 +1786,7 @@ function goPage(pg){
   document.getElementById('nv-'+pg)?.classList.add('on');
   document.getElementById('om-'+pg)?.classList.add('on');
   if(pg==='statistik') renderStatistik();
+  else if(pg==='chat') updApiStatus();
   else if(pg!=='dashboard') renderDash();
   const ca=document.querySelector('.content-area');if(ca)ca.scrollTop=0;
 }
@@ -2167,9 +2200,13 @@ async function procReceipt(ev){
 //     Dapatkan gratis di: https://aistudio.google.com
 //     Klik "Get API Key" → "Create API key" → copy & paste
 // =========================================================
-const GEMINI_API_KEY = '{{GEMINI_API_KEY}}';
-const GEMINI_MODEL   = 'gemini-2.5-flash';   // model gratis terbaik 2026
-const GEMINI_URL     = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+// ── GEMINI API KEY — loaded from localStorage ──
+let GEMINI_API_KEY = localStorage.getItem('bt_gemini_key') || '';
+const GEMINI_MODEL = 'gemini-2.5-flash';
+const getGeminiURL = () => {
+  const key = localStorage.getItem('bt_gemini_key') || '';
+  return `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${key}`;
+};
 
 async function sendChat(){
   const inp=document.getElementById('chat-in');
@@ -2188,7 +2225,7 @@ async function sendChat(){
   const pct=S.budget>0?Math.round(spent/S.budget*100):0;
   const catSummary=Object.entries(S.cats).map(([c,d])=>`${c}: Rp ${d.spent.toLocaleString('id-ID')} dari Rp ${d.amount.toLocaleString('id-ID')}`).join(', ');
 
-  const systemText=`Kamu adalah Bu Tari, asisten keuangan AI yang gaul, nyambung, dan relate sama anak muda Indonesia. Gaya ngomongnya santai kayak temen deket — pakai "kamu", "saya", bahasa gaul wajar. Jawab ringkas tapi lengkap. Kalau pertanyaan simpel, 2-3 kalimat cukup. Kalau butuh penjelasan (analisis, saran, rincian), boleh lebih panjang — tapi tetap padat dan nggak bertele-tele.
+  const systemText=`Kamu adalah Bu Tari, asisten keuangan AI yang gaul, nyambung, dan relate sama anak muda Indonesia. Gaya ngomongnya santai kayak temen deket — pakai "kamu", "saya", bahasa gaul wajar. Jawab singkat 2-3 kalimat, langsung to-the-point.
 
 DATA KEUANGAN USER (gunakan angka ini saat ditanya soal uang):
 - Budget bulan ini: Rp ${S.budget.toLocaleString('id-ID')} (${S.budget} rupiah)
@@ -2213,20 +2250,20 @@ ATURAN PENTING:
   })),{role:'user',parts:[{text:msg}]}];
 
   try{
-    const res=await fetch(GEMINI_URL,{
+    const res=await fetch(getGeminiURL(),{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
         system_instruction:{parts:[{text:systemText}]},
         contents,
-        generationConfig:{maxOutputTokens:2048,temperature:0.8}
+        generationConfig:{maxOutputTokens:500,temperature:0.75}
       })
     });
     const data=await res.json();
     const reply=data.candidates?.[0]?.content?.parts?.[0]?.text
       ||'Aduh koneksi Bu Tari bermasalah! Coba lagi ya sayang~ 🙏';
     S.chatH.push({role:'user',content:msg},{role:'assistant',content:reply});
-    if(S.chatH.length>30)S.chatH=S.chatH.slice(-30);
+    if(S.chatH.length>20)S.chatH=S.chatH.slice(-20);
     document.getElementById('typing')?.remove();
     addMsg(reply,'bot');
   }catch(err){
@@ -2244,7 +2281,7 @@ function addMsg(text,role){
 // ── TUTORIAL ──
 const TUTS=[
   {title:'Heyy! Saya Bu Tari! 👋',body:'Saya bakal jadi asisten duit kamu! Boleh saya kenalin fitur-fiturnya dulu? Bentar aja kok!',target:'tari-card',pos:'below'},
-  {title:'Mood Meter Bu Tari 😊',body:'Ini kartu mood saya! Kamu hemat = saya happy. Mulai boros = saya khawatir. Budget abis... Pukulan saya siap! 🏏',target:'tari-card',pos:'below'},
+  {title:'Mood Meter Bu Tari 😊',body:'Ini kartu mood saya! Kamu hemat = saya happy. Mulai boros = saya khawatir. Budget abis... Pukulannya saya siap! 🏏',target:'tari-card',pos:'below'},
   {title:'Kondisi Dompet Kamu 💵',body:'Total cuan, yang udah keluar, dan sisa bisa kamu pantau real-time di sini!',target:'sv-bud',pos:'below'},
   {title:'Kondisi Per Kantong 📊',body:'Tiap kategori ada progress bar-nya. Hijau = aman, kuning = hampir abis, merah = boncos!',target:'prog-list',pos:'below'},
   {title:'Tambah Pengeluaran ➕',body:'Tombol + buat catat pengeluaran. Bisa manual atau foto struk — Bu Tari yang baca otomatis!',target:null,pos:'center'},
@@ -2608,6 +2645,30 @@ function renderTrendLine(outTxs){
     </svg>
   </div>`;
 }
+// ── API KEY MANAGEMENT ──
+function saveApiKey(){
+  const val=document.getElementById('api-key-inp').value.trim();
+  if(!val){alert('Paste API key-nya dulu ya!');return}
+  GEMINI_API_KEY=val;
+  localStorage.setItem('bt_gemini_key',val);
+  updApiStatus();
+  alert('✅ API Key tersimpan! Sekarang bisa ngobrol sama Bu Tari~');
+}
+function updApiStatus(){
+  const key=localStorage.getItem('bt_gemini_key')||'';
+  const inp=document.getElementById('api-key-inp');
+  const st=document.getElementById('api-status');
+  if(!inp||!st)return;
+  if(key){
+    inp.value=key;
+    inp.setAttribute('type','password');
+    st.className='api-status ok';
+    st.textContent='✅ Aktif';
+  }else{
+    st.className='api-status missing';
+    st.textContent='Belum ada';
+  }
+}
 
 // ── BOOT ──
 document.addEventListener('DOMContentLoaded',()=>{
@@ -2619,6 +2680,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const us=JSON.parse(localStorage.getItem('bt_u')||'{}');
     if(us[cur]){S.user={name:us[cur].name,email:cur};loadData(cur);if(us[cur].onboarded){initMain();goTo('s-main');return}}
   }
+  updApiStatus();
   goTo('s-land');
 });
 window.addEventListener('resize',()=>{
