@@ -1,17 +1,10 @@
 {
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+  "build": {
+    "env": {
+      "GEMINI_API_KEY": "AQ.Ab8RN6JPleMz48i5-BY5kyrhH6BffSD3AzV7tolrQeQ43kUMUQ"
     }
-  ],
-  "env": {
-    "GEMINI_API_KEY": "{{GEMINI_API_KEY}}"
   }
 }
