@@ -1913,7 +1913,7 @@ function addEx(){
 function checkBudgetAlert(){
   const spent=S.txs.filter(t=>t.type==='out').reduce((a,t)=>a+t.amount,0);
   if(spent>S.budget&&S.budget>0)
-    setTimeout(()=>alert('🚨 BONCOS! Budget kamu abis! Bu Tari udah angkat baseball-nya nih! 🏏😤'),300);
+    setTimeout(()=>alert('🚨 BONCOS! Budget kamu abis! Bu Tari udah angkat Pukulan-nya nih! 🏏😤'),300);
 }
 
 // ── RECEIPT SCAN ── (scan → auto-fill form)
@@ -2244,7 +2244,7 @@ function addMsg(text,role){
 // ── TUTORIAL ──
 const TUTS=[
   {title:'Heyy! Saya Bu Tari! 👋',body:'Saya bakal jadi asisten duit kamu! Boleh saya kenalin fitur-fiturnya dulu? Bentar aja kok!',target:'tari-card',pos:'below'},
-  {title:'Mood Meter Bu Tari 😊',body:'Ini kartu mood saya! Kamu hemat = saya happy. Mulai boros = saya khawatir. Budget abis... baseball saya siap! 🏏',target:'tari-card',pos:'below'},
+  {title:'Mood Meter Bu Tari 😊',body:'Ini kartu mood saya! Kamu hemat = saya happy. Mulai boros = saya khawatir. Budget abis... Pukulan saya siap! 🏏',target:'tari-card',pos:'below'},
   {title:'Kondisi Dompet Kamu 💵',body:'Total cuan, yang udah keluar, dan sisa bisa kamu pantau real-time di sini!',target:'sv-bud',pos:'below'},
   {title:'Kondisi Per Kantong 📊',body:'Tiap kategori ada progress bar-nya. Hijau = aman, kuning = hampir abis, merah = boncos!',target:'prog-list',pos:'below'},
   {title:'Tambah Pengeluaran ➕',body:'Tombol + buat catat pengeluaran. Bisa manual atau foto struk — Bu Tari yang baca otomatis!',target:null,pos:'center'},
