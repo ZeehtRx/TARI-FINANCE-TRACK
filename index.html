@@ -2256,7 +2256,7 @@ ATURAN PENTING:
       body:JSON.stringify({
         system_instruction:{parts:[{text:systemText}]},
         contents,
-        generationConfig:{maxOutputTokens:500,temperature:0.75}
+        generationConfig:{maxOutputTokens:800,temperature:0.8}
       })
     });
     const data=await res.json();
